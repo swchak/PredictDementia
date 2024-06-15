@@ -140,14 +140,12 @@ Use the new jupyter iPython kernel to run the notebooks
 - Evaluate the model that was trained by running the validation dataset through the LogisticRegressionNN and get the predictions
 
 ```
-![Alt text](image-1.png)
 
 - predict_dementia_pl.ipynb
 ```
 Use Pytorch Lightning to improve the code in predict_dementia_pytoch.ipynb
 
 ```
-![Alt text](image-2.png)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
