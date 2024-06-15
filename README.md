@@ -44,7 +44,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 ```
-- Latest versions of Python & Jupyter Notebook are installed
+- Latest versions of Visual Studio Code, Python & Jupyter Notebook are installed
 
 ```
 
