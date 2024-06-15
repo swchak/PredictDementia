@@ -159,7 +159,7 @@ Use Pytorch Lightning to improve the code in predict_dementia_pytoch.ipynb
 
 - [@swchak](https://github.com/swchak) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/swchak) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
