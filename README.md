@@ -1,166 +1,203 @@
-<p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
-</p>
+# PredictDementia
 
-<h3 align="center">My First AI/ML Project</h3>
+A machine learning project for predicting dementia risk from patient health data using multiple modeling approaches in Python and Jupyter notebooks.
 
-<div align="center">
+## Overview
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+This repository explores dementia prediction as a binary classification problem using a patient health dataset.  
+The project includes:
 
-</div>
+- exploratory data analysis (EDA)
+- a baseline model built with scikit-learn
+- a neural network implementation in PyTorch
+- a refactored training workflow using PyTorch Lightning
 
----
+The goal of the project is to compare different approaches for the same prediction task while learning and practicing core machine learning workflows such as preprocessing, feature engineering, model training, and evaluation.
 
-<p align="center"> Binomial Classiification Model to Predict Patient Dementia Risk
-    <br> 
-</p>
+## Repository Structure
 
-## 📝 Table of Contents
+- `understand_data.ipynb`  
+  Exploratory data analysis of the dataset using pandas, seaborn, and matplotlib.
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- `predict_dementia_scikit.ipynb`  
+  Baseline binary classification workflow using scikit-learn logistic regression.
 
-## 🧐 About <a name = "about"></a>
+- `predict_dementia_pytoch.ipynb`  
+  Neural network implementation in PyTorch for dementia prediction.
 
-This work has been my attempt to dive into the world AI/ML.
+- `predict_dementia_pl.ipynb`  
+  PyTorch Lightning version of the PyTorch workflow with a cleaner training loop and metric logging.
 
-Dataset source: https://www.kaggle.com/datasets/timothyadeyemi/dementia-patient-health-dataset/data
+- `dementia_patients_health_data 2.csv`  
+  Dataset used for training and evaluation.
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+- `image.png`  
+  Screenshot used in the project setup walkthrough.
 
-These instructions will get you a copy of the project up and running on your local machine for development.
-### Prerequisites
+## Dataset
 
-```
-- Latest versions of Visual Studio Code, Python & Jupyter Notebook are installed
+This project uses the **Dementia Patient Health Dataset** from Kaggle.
 
-```
+Dataset source:  
+`https://www.kaggle.com/datasets/timothyadeyemi/dementia-patient-health-dataset/data`
 
-### Installing
+The dataset contains patient health and lifestyle information that can be used to predict whether a patient is at risk of dementia.
 
+Example feature groups used in the notebooks include:
 
-Check latest version of python is installed
+- demographic information
+- family history
+- smoking status
+- physical activity
+- nutrition and sleep quality
+- prescription and medication history
+- cognitive and health-related indicators
+- APOE-ε4 status
 
-```
-python --version
-```
+## Approaches Implemented
 
-Create New Virtual Environment and activate
+### 1. Exploratory Data Analysis
+The `understand_data.ipynb` notebook loads the dataset and visualizes relationships between features and the target variable using seaborn and matplotlib.
 
-```
-python -m venv virtual_env
-source virtual_env/bin/activate
-```
+### 2. Scikit-learn Baseline
+The `predict_dementia_scikit.ipynb` notebook:
 
+- loads the dataset into a pandas DataFrame
+- preprocesses categorical variables
+- handles missing values
+- scales features
+- splits the data into train and validation sets
+- trains a logistic regression classifier
+- reports classification metrics such as accuracy, precision, recall, and F1-score
 
-Install IPython Kernel for Jupyter within the new Virtual Environment
+### 3. PyTorch Model
+The `predict_dementia_pytoch.ipynb` notebook:
 
-```
-pip install ipykernel
-```
+- preprocesses the data with one-hot encoding and scaling
+- converts the dataset into PyTorch tensors
+- creates `DataLoader` objects
+- defines a feedforward neural network
+- trains the model across epochs
+- tracks training and validation loss
+- evaluates predictive performance
 
+### 4. PyTorch Lightning Version
+The `predict_dementia_pl.ipynb` notebook refactors the PyTorch workflow using PyTorch Lightning to provide:
 
-Register new IPy Kernel with Jupyter
+- cleaner training and validation loops
+- better experiment organization
+- built-in metric logging
+- easier scaling and maintenance
 
-```
-python -m ipykernel install --user --name=virtual_env
-```
+## Results
 
-Verify the new iPy Kernel is listed in the jupyter kernels
+The notebooks include evaluation metrics for each modeling approach.
 
-```
-jupyter kernelspec list
-```
+Examples of reported metrics include:
 
-Use the new jupyter iPython kernel to run the notebooks
+- accuracy
+- precision
+- recall
+- F1-score
+- validation loss
 
-![Alt text](image.png)
+The scikit-learn notebook currently shows very high validation performance in its recorded output. This may be worth investigating further to confirm whether the preprocessing pipeline, feature set, or dataset characteristics make the task unusually easy.
 
+## Requirements
 
-## 🎈 Usage <a name="usage"></a>
+To run the notebooks locally, you should have:
 
-- understand_data.ipynb 
+- Python 3.11+
+- Jupyter Notebook or JupyterLab
+- pip
+- a virtual environment tool such as `venv`
 
-``` 
-- Reads health dataset into pandas dataframe
+Suggested Python packages:
 
-- create seaborn histogram plots to study the relationship of each feature to the target
-```
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+- torch
+- torchmetrics
+- lightning
+- ipykernel
 
-- predict_dementia_scikit.ipynb
+## Setup
 
-```
-- Reads health dataset into pandas dataframe
-- Preprocess the data using sklearn.preprocessing converting categorical data into numeric and replacing NaN values
-- Perform standard scaling 
-- split the data into training and validation sets
-- create instance of LogisticRegression model and fit the model on training dataset
-- Use the model to make predictions on validation dataset
-- Report the classification metrics 
+### 1. Clone the repository
 
-```
-
-- predict_dementia_pytoch.ipynb
-```
-- Reads health dataset into pandas dataframe
-- Drop features that wont affect the target
-- Clean NaN values in the dataset
-- split the data into training and validation sets
-- Preprocess the training and validation dataset(converting categorical features into numeric and perform standard scaling on all the data)
-- Convert training and validation numpy arrays to torch tensors
-- Set batch size & Create instances of DataLoaders for training and validation datasets that will be used for training and validation
-- Define a new Pytorch module LogisticRegressionNN with 2 hidden layers with corresponding ReLU activation functions, final output feeds into Sigmoid activation function
-- Create an instance of LogisticRegressionNN, move it to cuda/mps/cpu device
-- Create instance of loss function and the gradient descent optimizer that will be used for training
-- For each epoch 
-    -  iterate through all the batches of training data 
-        - generate predictions passing the data through LogisticRegressionNN
-        - apply the loss function to compute the loss
-        - perform gradient on the loss computed
-        - run the optimizer.step to update the weights. 
-        - save training loss for the entire epoch 
-    - iterate through all the batches of validation data
-        - generate predictions passing the data through LogisticRegressionNN
-        - apply the loss function to compute the loss
-        - calculate accuracy metric
-        - save validation loss for the entire epoch 
-- Draw a plot of the training and validations losses for each epoch
-- Evaluate the model that was trained by running the validation dataset through the LogisticRegressionNN and get the predictions
-
+```bash
+git clone https://github.com/swchak/PredictDementia.git
+cd PredictDementia
 ```
 
-- predict_dementia_pl.ipynb
+### 2. Create and activate a virtual environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
 ```
-Use Pytorch Lightning to improve the code in predict_dementia_pytoch.ipynb
 
+On Windows:
+
+```bash
+.venv\Scripts\activate
 ```
 
-## ⛏️ Built Using <a name = "built_using"></a>
+### 3. Install dependencies
 
-- [ScikitLearn](https://scikit-learn.org/)
-- [Pytorch](https://pytorch.org/)
-- [Pytorch Lightning](https://lightning.ai/docs/pytorch/stable/)
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn torch torchmetrics lightning jupyter ipykernel
+```
 
-## ✍️ Authors <a name = "authors"></a>
+### 4. Start Jupyter
 
-- [@swchak](https://github.com/swchak) - Idea & Initial work
+```bash
+jupyter notebook
+```
 
-See also the list of [contributors](https://github.com/swchak) who participated in this project.
+Then open any of the notebooks from the repository root.
 
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+## How to Run
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+A good order for exploring the project is:
+
+1. `understand_data.ipynb`
+2. `predict_dementia_scikit.ipynb`
+3. `predict_dementia_pytoch.ipynb`
+4. `predict_dementia_pl.ipynb`
+
+This order helps you move from data understanding to baseline modeling and then to deep learning workflows.
+
+## Notes
+
+- The PyTorch notebook filename currently contains a typo: `predict_dementia_pytoch.ipynb` instead of `predict_dementia_pytorch.ipynb`.
+- The repository appears to be notebook-first, so reproducibility could be improved further by adding a `requirements.txt` file.
+- Since this is a health-related prediction project, the model outputs should be treated as educational/experimental rather than medical advice.
+
+## Future Improvements
+
+Some useful next steps for the project could include:
+
+- adding a `requirements.txt` or `environment.yml`
+- splitting preprocessing into reusable utility functions
+- adding ROC-AUC and confusion matrix evaluation
+- performing cross-validation
+- testing additional models such as random forest or XGBoost
+- improving experiment tracking
+- renaming notebook files for consistency
+- documenting feature definitions and target labels more clearly
+
+## Author
+
+Created by [@swchak](https://github.com/swchak)
+
+## Acknowledgments
+
+- Kaggle dataset contributors
+- scikit-learn
+- PyTorch
+- PyTorch Lightning
+- pandas, seaborn, and matplotlib
