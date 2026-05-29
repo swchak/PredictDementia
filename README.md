@@ -1,130 +1,132 @@
 # PredictDementia
 
-A machine learning project for predicting dementia risk from patient health data using multiple modeling approaches in Python and Jupyter notebooks.
+> Predicting dementia risk from patient health data using scikit-learn, PyTorch, and PyTorch Lightning.
 
-## Overview
+## Why this project matters
 
-This repository explores dementia prediction as a binary classification problem using a patient health dataset.  
-The project includes:
+Early risk prediction can help support faster clinical follow-up and better patient monitoring. In this project, I explore dementia prediction as a **binary classification** task using patient health and lifestyle data, and compare multiple machine learning workflows ranging from a classical baseline to deep learning.
 
-- exploratory data analysis (EDA)
-- a baseline model built with scikit-learn
-- a neural network implementation in PyTorch
-- a refactored training workflow using PyTorch Lightning
+This repository was built as a hands-on machine learning project to strengthen practical skills in:
 
-The goal of the project is to compare different approaches for the same prediction task while learning and practicing core machine learning workflows such as preprocessing, feature engineering, model training, and evaluation.
+- exploratory data analysis
+- preprocessing structured health data
+- feature engineering
+- classical machine learning
+- neural network training
+- experiment organization with PyTorch Lightning
 
-## Repository Structure
+## Project summary
+
+The project includes four main notebooks:
+
+- **`understand_data.ipynb`** — explores the dataset using visualizations
+- **`predict_dementia_scikit.ipynb`** — builds a scikit-learn logistic regression baseline
+- **`predict_dementia_pytoch.ipynb`** — trains a PyTorch neural network model
+- **`predict_dementia_pl.ipynb`** — refactors the PyTorch workflow using PyTorch Lightning
+
+The goal is not just to make predictions, but to compare modeling approaches and understand how data preparation and training workflows affect results.
+
+## Tech stack
+
+- Python
+- Jupyter Notebook
+- pandas
+- numpy
+- seaborn
+- matplotlib
+- scikit-learn
+- PyTorch
+- torchmetrics
+- Lightning
+
+## Repository structure
 
 - `understand_data.ipynb`  
-  Exploratory data analysis of the dataset using pandas, seaborn, and matplotlib.
+  Exploratory data analysis of feature distributions and their relationship to dementia risk.
 
 - `predict_dementia_scikit.ipynb`  
-  Baseline binary classification workflow using scikit-learn logistic regression.
+  Baseline classification pipeline using logistic regression.
 
 - `predict_dementia_pytoch.ipynb`  
-  Neural network implementation in PyTorch for dementia prediction.
+  Deep learning workflow implemented directly in PyTorch.
 
 - `predict_dementia_pl.ipynb`  
-  PyTorch Lightning version of the PyTorch workflow with a cleaner training loop and metric logging.
+  Cleaner and more maintainable PyTorch Lightning training workflow.
 
 - `dementia_patients_health_data 2.csv`  
-  Dataset used for training and evaluation.
+  Dataset used throughout the project.
 
 - `image.png`  
-  Screenshot used in the project setup walkthrough.
+  Setup screenshot used in earlier project documentation.
 
 ## Dataset
 
 This project uses the **Dementia Patient Health Dataset** from Kaggle.
 
-Dataset source:  
+Source:
 `https://www.kaggle.com/datasets/timothyadeyemi/dementia-patient-health-dataset/data`
 
-The dataset contains patient health and lifestyle information that can be used to predict whether a patient is at risk of dementia.
+The dataset contains patient-level information such as:
 
-Example feature groups used in the notebooks include:
-
-- demographic information
+- demographics
 - family history
 - smoking status
 - physical activity
-- nutrition and sleep quality
+- sleep quality
+- nutrition
 - prescription and medication history
-- cognitive and health-related indicators
+- cognitive and health indicators
 - APOE-ε4 status
 
-## Approaches Implemented
+These features are used to predict the target label: **whether a patient is classified as having dementia risk**.
+
+## Modeling approaches
 
 ### 1. Exploratory Data Analysis
-The `understand_data.ipynb` notebook loads the dataset and visualizes relationships between features and the target variable using seaborn and matplotlib.
+The EDA notebook investigates feature distributions and class relationships using seaborn and matplotlib visualizations.
 
-### 2. Scikit-learn Baseline
-The `predict_dementia_scikit.ipynb` notebook:
+### 2. Scikit-learn baseline
+The scikit-learn notebook:
 
-- loads the dataset into a pandas DataFrame
-- preprocesses categorical variables
+- loads the dataset into pandas
+- preprocesses categorical columns
 - handles missing values
-- scales features
-- splits the data into train and validation sets
+- performs train/validation splitting
+- applies feature scaling
 - trains a logistic regression classifier
-- reports classification metrics such as accuracy, precision, recall, and F1-score
+- reports accuracy, precision, recall, and F1-score
 
-### 3. PyTorch Model
-The `predict_dementia_pytoch.ipynb` notebook:
+### 3. PyTorch neural network
+The PyTorch notebook:
 
-- preprocesses the data with one-hot encoding and scaling
-- converts the dataset into PyTorch tensors
-- creates `DataLoader` objects
+- applies one-hot encoding and scaling
+- converts data to tensors
+- uses `DataLoader` for batching
 - defines a feedforward neural network
-- trains the model across epochs
-- tracks training and validation loss
-- evaluates predictive performance
+- trains over multiple epochs
+- tracks training and validation performance
 
-### 4. PyTorch Lightning Version
-The `predict_dementia_pl.ipynb` notebook refactors the PyTorch workflow using PyTorch Lightning to provide:
+### 4. PyTorch Lightning workflow
+The Lightning notebook reorganizes the PyTorch solution into a cleaner training framework with:
 
-- cleaner training and validation loops
-- better experiment organization
-- built-in metric logging
-- easier scaling and maintenance
+- modular training code
+- built-in logging
+- easier validation tracking
+- better maintainability for future experiments
 
-## Results
+## Results and observations
 
-The notebooks include evaluation metrics for each modeling approach.
+The recorded notebook outputs show very strong performance, especially in the scikit-learn and Lightning workflows.
 
-Examples of reported metrics include:
+This is promising, but it also suggests a useful next step: validating whether performance remains strong under stricter testing conditions such as:
 
-- accuracy
-- precision
-- recall
-- F1-score
-- validation loss
+- cross-validation
+- ROC-AUC analysis
+- confusion matrix review
+- leakage checks
+- stronger train/test separation
 
-The scikit-learn notebook currently shows very high validation performance in its recorded output. This may be worth investigating further to confirm whether the preprocessing pipeline, feature set, or dataset characteristics make the task unusually easy.
-
-## Requirements
-
-To run the notebooks locally, you should have:
-
-- Python 3.11+
-- Jupyter Notebook or JupyterLab
-- pip
-- a virtual environment tool such as `venv`
-
-Suggested Python packages:
-
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- scikit-learn
-- torch
-- torchmetrics
-- lightning
-- ipykernel
-
-## Setup
+## How to run the project
 
 ### 1. Clone the repository
 
@@ -149,55 +151,48 @@ On Windows:
 ### 3. Install dependencies
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn torch torchmetrics lightning jupyter ipykernel
+pip install -r requirements.txt
 ```
 
-### 4. Start Jupyter
+### 4. Launch Jupyter
 
 ```bash
 jupyter notebook
 ```
 
-Then open any of the notebooks from the repository root.
-
-## How to Run
-
-A good order for exploring the project is:
+Recommended notebook order:
 
 1. `understand_data.ipynb`
 2. `predict_dementia_scikit.ipynb`
 3. `predict_dementia_pytoch.ipynb`
 4. `predict_dementia_pl.ipynb`
 
-This order helps you move from data understanding to baseline modeling and then to deep learning workflows.
+## Key takeaways
 
-## Notes
+This project demonstrates:
 
-- The PyTorch notebook filename currently contains a typo: `predict_dementia_pytoch.ipynb` instead of `predict_dementia_pytorch.ipynb`.
-- The repository appears to be notebook-first, so reproducibility could be improved further by adding a `requirements.txt` file.
-- Since this is a health-related prediction project, the model outputs should be treated as educational/experimental rather than medical advice.
+- end-to-end ML workflow development on tabular healthcare data
+- comparison of classical ML vs neural networks
+- practical preprocessing for mixed-type structured datasets
+- training and evaluation in both raw PyTorch and Lightning
+- iterative improvement of code quality and experimentation workflow
 
-## Future Improvements
+## Future improvements
 
-Some useful next steps for the project could include:
+Potential next steps include:
 
-- adding a `requirements.txt` or `environment.yml`
-- splitting preprocessing into reusable utility functions
 - adding ROC-AUC and confusion matrix evaluation
-- performing cross-validation
-- testing additional models such as random forest or XGBoost
-- improving experiment tracking
-- renaming notebook files for consistency
-- documenting feature definitions and target labels more clearly
+- introducing cross-validation
+- testing additional models such as random forest or gradient boosting
+- renaming `predict_dementia_pytoch.ipynb` to `predict_dementia_pytorch.ipynb`
+- moving reusable preprocessing code into Python modules
+- adding experiment tracking and reproducibility controls
+- documenting feature definitions in more detail
 
 ## Author
 
 Created by [@swchak](https://github.com/swchak)
 
-## Acknowledgments
+## Disclaimer
 
-- Kaggle dataset contributors
-- scikit-learn
-- PyTorch
-- PyTorch Lightning
-- pandas, seaborn, and matplotlib
+This project is for educational and portfolio purposes only. It is **not** intended for clinical or diagnostic use.
