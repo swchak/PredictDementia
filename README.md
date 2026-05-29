@@ -26,8 +26,8 @@ The project includes four main notebooks:
 
 - **`understand_data.ipynb`** — explores the dataset using visualizations
 - **`predict_dementia_scikit.ipynb`** — builds a scikit-learn logistic regression baseline
-- **`predict_dementia_pytorch.ipynb`** — trains a PyTorch neural network model
-- **`predict_dementia_lightning.ipynb`** — refactors the PyTorch workflow using PyTorch Lightning
+- **`predict_dementia_pytoch.ipynb`** — trains a PyTorch neural network model
+- **`predict_dementia_pl.ipynb`** — refactors the PyTorch workflow using PyTorch Lightning
 
 The goal is not just to make predictions, but to compare modeling approaches and understand how data preparation and training workflows affect results.
 
@@ -52,10 +52,10 @@ The goal is not just to make predictions, but to compare modeling approaches and
 - `predict_dementia_scikit.ipynb`  
   Baseline classification pipeline using logistic regression.
 
-- `predict_dementia_pytorch.ipynb`  
+- `predict_dementia_pytoch.ipynb`  
   Deep learning workflow implemented directly in PyTorch.
 
-- `predict_dementia_lightning.ipynb`  
+- `predict_dementia_pl.ipynb`  
   Cleaner and more maintainable PyTorch Lightning training workflow.
 
 - `dementia_patients_health_data 2.csv`  
@@ -172,8 +172,8 @@ Recommended notebook order:
 
 1. `understand_data.ipynb`
 2. `predict_dementia_scikit.ipynb`
-3. `predict_dementia_pytorch.ipynb`
-4. `predict_dementia_lightning.ipynb`
+3. `predict_dementia_pytoch.ipynb`
+4. `predict_dementia_pl.ipynb`
 
 ## Key takeaways
 
