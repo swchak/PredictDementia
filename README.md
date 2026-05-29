@@ -1,5 +1,10 @@
 # PredictDementia
 
+![Python](https://img.shields.io/badge/Python-3.11+-blue)
+![Jupyter](https://img.shields.io/badge/Notebook-Jupyter-orange)
+![ML](https://img.shields.io/badge/Machine%20Learning-Scikit--learn%20%7C%20PyTorch-brightgreen)
+![Status](https://img.shields.io/badge/Project-Portfolio-informational)
+
 > Predicting dementia risk from patient health data using scikit-learn, PyTorch, and PyTorch Lightning.
 
 ## Why this project matters
@@ -21,8 +26,8 @@ The project includes four main notebooks:
 
 - **`understand_data.ipynb`** — explores the dataset using visualizations
 - **`predict_dementia_scikit.ipynb`** — builds a scikit-learn logistic regression baseline
-- **`predict_dementia_pytoch.ipynb`** — trains a PyTorch neural network model
-- **`predict_dementia_pl.ipynb`** — refactors the PyTorch workflow using PyTorch Lightning
+- **`predict_dementia_pytorch.ipynb`** — trains a PyTorch neural network model
+- **`predict_dementia_lightning.ipynb`** — refactors the PyTorch workflow using PyTorch Lightning
 
 The goal is not just to make predictions, but to compare modeling approaches and understand how data preparation and training workflows affect results.
 
@@ -47,10 +52,10 @@ The goal is not just to make predictions, but to compare modeling approaches and
 - `predict_dementia_scikit.ipynb`  
   Baseline classification pipeline using logistic regression.
 
-- `predict_dementia_pytoch.ipynb`  
+- `predict_dementia_pytorch.ipynb`  
   Deep learning workflow implemented directly in PyTorch.
 
-- `predict_dementia_pl.ipynb`  
+- `predict_dementia_lightning.ipynb`  
   Cleaner and more maintainable PyTorch Lightning training workflow.
 
 - `dementia_patients_health_data 2.csv`  
@@ -58,6 +63,9 @@ The goal is not just to make predictions, but to compare modeling approaches and
 
 - `image.png`  
   Setup screenshot used in earlier project documentation.
+
+- `requirements.txt`  
+  Python dependencies required to run the notebooks.
 
 ## Dataset
 
@@ -164,8 +172,8 @@ Recommended notebook order:
 
 1. `understand_data.ipynb`
 2. `predict_dementia_scikit.ipynb`
-3. `predict_dementia_pytoch.ipynb`
-4. `predict_dementia_pl.ipynb`
+3. `predict_dementia_pytorch.ipynb`
+4. `predict_dementia_lightning.ipynb`
 
 ## Key takeaways
 
@@ -184,7 +192,6 @@ Potential next steps include:
 - adding ROC-AUC and confusion matrix evaluation
 - introducing cross-validation
 - testing additional models such as random forest or gradient boosting
-- renaming `predict_dementia_pytoch.ipynb` to `predict_dementia_pytorch.ipynb`
 - moving reusable preprocessing code into Python modules
 - adding experiment tracking and reproducibility controls
 - documenting feature definitions in more detail
