@@ -20,6 +20,10 @@ This repository was built as a hands-on machine learning project to strengthen p
 - neural network training
 - experiment organization with PyTorch Lightning
 
+## Portfolio summary
+
+Built a machine learning project to predict dementia risk from patient health data using Python, scikit-learn, PyTorch, and PyTorch Lightning. The project includes exploratory data analysis, a logistic regression baseline, a custom neural network workflow, and a Lightning-based training pipeline for cleaner experiment organization. This work helped strengthen practical skills in preprocessing tabular healthcare data, feature engineering, model evaluation, and comparing classical machine learning with deep learning approaches.
+
 ## Project summary
 
 The project includes four main notebooks:
